@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .r1{
+        width:300px; 
+      }
+      #c1{
+        width:295px;
+        height: 40px;
+        background-color: aquamarine;
+        font-size: 26px;
+        font-weight: bold;
+    
+      }
+      .mainDiv
+      {
+        background-color: grey;
+        display:grid;
+        width:329px;
+        height: 300px;
+        grid-template-columns: repeat(4,1fr);
+        gap:15px 15px;
+      }
+      .f1{
+        font-size: 24px;
+        font-weight: bold;
+        height: 40px;
+        width: 40px;
+        border-radius: 20%;
+      }
+      #e1{
+        background-color: yellow;
+      }
+      body{
+        display: grid;
+        place-items: center;
+      }
+      
+    </style>
+</head>
+<body>
+    <h1>CALCULATOR</h1>
+    <div class="r1" style="border: 30px solid grey";>
+        <div><input type="text" value="" id="c1"></div>
+        <div class="mainDiv" style="border: 1px ;">
+           <div ><button class="f1" onclick="Solve(7)">7</button></div>
+           <div><button class="f1" onclick="Solve(8)">8</button></div>
+           <div><button class="f1" onclick="Solve(9)">9</button></div>
+           <div ><button class="f1" onclick="Solve('/')">/</button></div>
+           <div ><button class="f1" onclick="Solve(4)">4</button></div>
+           <div ><button class="f1" onclick="Solve(5)">5</button></div>
+           <div ><button class="f1" onclick="Solve(6)">6</button></div>
+           <div ><button class="f1" onclick="Solve('*')">x</button></div>
+           <div ><button class="f1" onclick="Solve(1)">1</button></div>
+           <div ><button class="f1" onclick="Solve(2)">2</button></div>
+           <div ><button class="f1" onclick="Solve(3)">3</button></div>
+           <div ><button class="f1" onclick="Solve('-')">-</button></div>
+           <div ><button class="f1" onclick="Solve(0)">0</button></div>
+           <div ><button class="f1" onclick="Solve('.')">.</button></div>
+           <div ><button class="f1" onclick="Solve('+')">+</button></div>
+           <div ><button class="f1" id="e1" onclick="Result()">=</button></div>
+
+    </div>
+</body>
+</html>
+<script>
+  function Solve(val) {
+   var v = document.getElementById('c1');
+   v.value += val;
+}
+function Result() {
+   var num1 = document.getElementById('c1').value;
+   var num2 = eval(num1);
+   document.getElementById('c1').value = num2;
+}
+/*function Clear() {
+   var inp = document.getElementById('res');
+   inp.value = '';
+}
+function Back() {
+   var ev = document.getElementById('res');
+   ev.value = ev.value.slice(0,-1);
+}*/
+</script>
