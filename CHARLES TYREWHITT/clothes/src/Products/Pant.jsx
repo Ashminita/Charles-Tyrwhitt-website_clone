@@ -1,16 +1,18 @@
-// src/App.js
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Suit.css';
 
 function Pant() {
   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    fetch('http://localhost:8080/pant')
-      .then(response => response.json())
-      .then(data => setProducts(data))
-      .catch(error => console.error('Error fetching data:', error));
-  }, []);
+  async function getData()
+  {
+    let res= await fetch('http://localhost:3000/pant');
+    let fetchedData=await res.json();
+    setProducts(fetchedData);
+  }
+  useEffect(()=>{getData();},[]);
+
 
   return (
     <div className="App">
@@ -24,7 +26,7 @@ function Pant() {
       <div className="product-list">
         {products.map(product => (
           <div key={product.id} className="product-card">
-            <img src={product.img} alt={product.title} />
+            <Link to={`/product/${product.id}`}><img src={product.img} alt={product.title} /></Link>
             <h2>{product.title}</h2>
             <p>{product.description}</p>
             <p>${product.price}</p>
@@ -36,3 +38,5 @@ function Pant() {
 }
 
 export default Pant;
+
+
