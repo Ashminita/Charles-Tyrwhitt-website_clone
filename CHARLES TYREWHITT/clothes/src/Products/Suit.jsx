@@ -1,16 +1,17 @@
-// src/App.js
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Suit.css';
 
 function Suit() {
   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    fetch('http://localhost:8080/suit')
-      .then(response => response.json())
-      .then(data => setProducts(data))
-      .catch(error => console.error('Error fetching data:', error));
-  }, []);
+  async function getData()
+  {
+    let res= await fetch('http://localhost:3000/suit');
+    let fetchedData=await res.json();
+    setProducts(fetchedData);
+  }
+  useEffect(()=>{getData();},[]);
 
   return (
     <div className="App">
@@ -24,7 +25,7 @@ function Suit() {
       <div className="product-list">
         {products.map(product => (
           <div key={product.id} className="product-card">
-            <img src={product.img} alt={product.title} />
+            <Link to={`/product/${product.id}`}><img src={product.img} alt={product.title} /></Link>
             <h2>{product.title}</h2>
             <p>{product.description}</p>
             <p>${product.price}</p>
@@ -36,3 +37,6 @@ function Suit() {
 }
 
 export default Suit;
+
+
+
