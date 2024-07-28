@@ -8,17 +8,23 @@ function ProductDetails() {
   const [product, setProduct] = useState(null);
   const [selectedColor, setSelectedColor] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
+  const [showSizeOptions, setShowSizeOptions] = useState(false);
 
   useEffect(() => {
     fetch(`http://localhost:3000/product/${id}`)
       .then(response => response.json())
-      .then(data => setProduct(data))
+      .then(data => {
+        setProduct(data);
+        if (data.colors && data.colors.length > 0) {
+          setSelectedColor(data.colors[0]); 
+        }
+      })
       .catch(error => console.error('Error fetching product data:', error));
   }, [id]);
 
   const addToCart = async () => {
-    if (!selectedColor || !selectedSize) {
-      alert("Please select color and size");
+    if (!selectedSize) {
+      alert("Please select a size");
       return;
     }
 
@@ -46,7 +52,7 @@ function ProductDetails() {
     <div className="product-details">
       <div className="image-section">
         <img src={product.img} alt={product.title} />
-        {/* Additional thumbnails if available */}
+        
       </div>
       <div className="details-section">
         <h1>{product.title}</h1>
@@ -68,12 +74,25 @@ function ProductDetails() {
 
         <div className="size-options">
           <h4>Size</h4>
-          <select value={selectedSize} onChange={(e) => setSelectedSize(e.target.value)}>
-            <option value="" disabled>Select size</option>
-            {product.sizes && product.sizes.map((size, index) => (
-              <option key={index} value={size}>{size}</option>
-            ))}
-          </select>
+          <button onClick={() => setShowSizeOptions(!showSizeOptions)}>
+            {selectedSize || "Select Size"}
+          </button>
+          {showSizeOptions && (
+            <div className="size-dropdown">
+              {['Small', 'Medium', 'Large'].map((size, index) => (
+                <button
+                  key={index}
+                  className={selectedSize === size ? "selected" : ""}
+                  onClick={() => {
+                    setSelectedSize(size);
+                    setShowSizeOptions(false);
+                  }}
+                >
+                  {size}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         <button onClick={addToCart}>Add to Cart</button>
