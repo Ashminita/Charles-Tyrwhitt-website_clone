@@ -1,5 +1,4 @@
 import React from 'react';
-import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './Carosell.css'; 
@@ -8,37 +7,9 @@ import { Link } from 'react-router-dom';
 
 
 const Carosell = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-        }
-      }
-    ]
-  };
-
+  
   return (
     <div className='carousel-container'>
-      <Slider {...settings}>
         <div className='card'>
           <a><img src="/Images/hc-044.jpg" alt=""/></a>
           <div className='card-body'>
@@ -81,9 +52,10 @@ const Carosell = () => {
             <p>4 FOR $259,SAVE $255</p>
           </div>
         </div>
-      </Slider>
+      
     </div>
   );
 };
 
 export default Carosell;
+
