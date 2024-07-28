@@ -1,0 +1,23 @@
+.carousel-container {
+    width: 100%;
+    padding: 20px 0;
+    box-sizing: border-box;
+  }
+  
+  .card {
+    padding: 0 10px; 
+  }
+  
+  .card img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .card-body {
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  .slick-prev, .slick-next {
+    z-index: 1;
+  }

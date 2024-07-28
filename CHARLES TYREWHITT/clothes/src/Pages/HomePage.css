@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    padding: 10px 0;
+    /* border-bottom: 1px solid #ddd; */
+   
+
+    
+  }
+  
+  .container h4 {
+    margin: 0 15px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+  }
+  
+  .container h4:hover {
+    color: #000;
+  }
+  
+  .container h4:nth-child(even) {
+    color: #999;
+  }
+  
+  .container h4:nth-last-child(1) {
+    color: #B22222;
+  }
