@@ -16,11 +16,11 @@ function Shirt() {
   const buttonCarouselRef = useRef(null);
 
   const scrollLeft = () => {
-    buttonCarouselRef.current.scrollLeft -= 200; // Adjust the value as needed
+    buttonCarouselRef.current.scrollLeft -= 200; 
   };
 
   const scrollRight = () => {
-    buttonCarouselRef.current.scrollLeft += 200; // Adjust the value as needed
+    buttonCarouselRef.current.scrollLeft += 200; 
   };
 
 
