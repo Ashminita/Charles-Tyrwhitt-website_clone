@@ -82,4 +82,4 @@ function ProductDetails() {
   );
 }
 
-export default ProductDetails;
+export default ProductDetails;0.
