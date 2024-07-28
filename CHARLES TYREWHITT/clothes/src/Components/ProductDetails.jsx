@@ -31,7 +31,7 @@ function ProductDetails() {
 
     const cartItem = {
       ...product,
-      color: selectedColor,
+      
       size: selectedSize,
       quantity: 1
     };
@@ -60,21 +60,9 @@ function ProductDetails() {
         <p>{product.description}</p>
         <p className="price">Price: ${product.price}</p>
 
-        <div className="color-options">
-          <h4>Color</h4>
-          {product.colors && product.colors.map((color, index) => (
-            <button
-              key={index}
-              className={selectedColor === color ? "selected" : ""}
-              onClick={() => setSelectedColor(color)}
-            >
-              {color}
-            </button>
-          ))}
-        </div>
 
         <div className="size-options">
-          <h4>Size</h4>
+          <h1 style={{fontWeight:'bold'}}>Size</h1>
           <button onClick={() => setShowSizeOptions(!showSizeOptions)}>
             {selectedSize || "Select Size"}
           </button>
@@ -102,4 +90,4 @@ function ProductDetails() {
   );
 }
 
-export default ProductDetails;0.
+export default ProductDetails;
