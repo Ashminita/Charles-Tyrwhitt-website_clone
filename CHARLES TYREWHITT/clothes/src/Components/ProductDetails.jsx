@@ -1,3 +1,4 @@
+//singleproduct
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './ProductDetalils.css';
@@ -52,7 +53,7 @@ function ProductDetails() {
     <div className="product-details">
       <div className="image-section">
         <img src={product.img} alt={product.title} />
-        
+       
       </div>
       <div className="details-section">
         <h1>{product.title}</h1>
