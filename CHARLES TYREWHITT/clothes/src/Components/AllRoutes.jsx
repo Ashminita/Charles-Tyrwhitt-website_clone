@@ -5,8 +5,8 @@ import ProductDetails from './ProductDetails'
 import {Routes,Route} from 'react-router-dom'
 import Pant from '../Products/Pant'
 import Cart from './Cart'
-import Login from '../Navbar/Login'
-import CreateAccountPage from '../Navbar/CreateAccountPage'
+import Login from '../navbar/Login'
+import CreateAccountPage from '../navbar/CreateAccountPage'
 import Home from '../Pages/Home'
 
 

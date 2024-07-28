@@ -2,8 +2,8 @@ import React, { useRef, useEffect } from 'react';
 import Carosell from './Carosell';
 import Below from './Below';
 import HomePage from './Homepage';
-import Navbar from '../Navbar/Navbar';
-import Rooter from '../Navbar/Rooter';
+import Navbar from '../navbar/Navbar';
+import Rooter from '../navbar/Rooter';
 
 const Home = ({ src }) => {
   const videoRef = useRef(null);
