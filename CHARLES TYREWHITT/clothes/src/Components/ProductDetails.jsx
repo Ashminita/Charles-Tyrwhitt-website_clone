@@ -1,3 +1,4 @@
+//singleproduct
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './ProductDetalils.css';
@@ -16,7 +17,7 @@ function ProductDetails() {
       .then(data => {
         setProduct(data);
         if (data.colors && data.colors.length > 0) {
-          setSelectedColor(data.colors[0]); // Set default color
+          setSelectedColor(data.colors[0]); 
         }
       })
       .catch(error => console.error('Error fetching product data:', error));
@@ -52,7 +53,7 @@ function ProductDetails() {
     <div className="product-details">
       <div className="image-section">
         <img src={product.img} alt={product.title} />
-        {/* Additional thumbnails if available */}
+       
       </div>
       <div className="details-section">
         <h1>{product.title}</h1>
