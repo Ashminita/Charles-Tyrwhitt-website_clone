@@ -6,7 +6,9 @@ import { Link } from 'react-router-dom';
 
 
 
+
 const Carosell = () => {
+  
   
   return (
     <div className='carousel-container'>
@@ -39,7 +41,7 @@ const Carosell = () => {
           </div>
         </div>
         <div className='card'>
-          <a><img src="/Images/hc-064.jpg" alt=""/></a>
+          <Link to={'/blazer'}><img src="/Images/hc-064.jpg" alt=""/></Link>
           <div className='card-body'>
             <h2>BLAZERS</h2>
             <p>AT A STRETCH</p>
@@ -52,7 +54,6 @@ const Carosell = () => {
             <p>4 FOR $259,SAVE $255</p>
           </div>
         </div>
-      
     </div>
   );
 };
