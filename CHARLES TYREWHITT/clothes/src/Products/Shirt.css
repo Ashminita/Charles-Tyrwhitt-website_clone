@@ -1,4 +1,4 @@
-/* General styles */
+
 .App {
   font-family: 'Arial', sans-serif;
   color: #333;
@@ -7,7 +7,7 @@
   text-align: center;
 }
 
-/* Title styles */
+
 #a1 {
   font-size: 32px;
   font-weight: bold;
@@ -16,7 +16,7 @@
   letter-spacing: 2px;
 }
 
-/* Introduction section styles */
+
 .intro {
   max-width: 1200px;
   margin: 0 auto;
@@ -31,7 +31,7 @@
   padding: 0 10px;
 }
 
-/* Carousel container */
+
 .carousel-container {
   position: relative;
   display: flex;
@@ -46,12 +46,12 @@
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   padding: 10px;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* IE 10+ */
+  scrollbar-width: none; 
+  -ms-overflow-style: none;  
 }
 
 .b1::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none; 
 }
 
 .b1 button {
@@ -91,7 +91,7 @@
   right: 10px;
 }
 
-/* Image styles */
+
 .intro img {
   width: 100%;
   max-width: 600px;

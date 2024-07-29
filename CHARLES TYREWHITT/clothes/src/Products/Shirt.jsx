@@ -1,6 +1,8 @@
 import React, { useEffect, useState ,useRef} from 'react';
 import { Link } from 'react-router-dom';
 import './Shirt.css';
+import Navbar from '../navbar/Navbar'
+import Rooter from '../navbar/Rooter'
 
 function Shirt() {
   const [products, setProducts] = useState([]);
@@ -25,6 +27,8 @@ function Shirt() {
 
 
   return (
+    <>
+    <Navbar/>
     <div className="App">
       <h1 id="a1">MEN'S DRESS & FORMAL SHIRTS</h1>
       <div className="intro">
@@ -62,6 +66,10 @@ function Shirt() {
         ))}
       </div>
     </div>
+    <Rooter/>
+    
+    </>
+    
   );
 }
 
