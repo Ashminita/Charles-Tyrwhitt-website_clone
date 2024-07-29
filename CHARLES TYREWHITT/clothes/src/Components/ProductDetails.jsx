@@ -1,7 +1,9 @@
-//singleproduct
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './ProductDetalils.css';
+import Navbar from '../navbar/Navbar';
+import Rooter from '../navbar/Rooter';
+import HomePage from '../Pages/Homepage';
 
 function ProductDetails() {
   const { id } = useParams();
@@ -9,16 +11,12 @@ function ProductDetails() {
   const [product, setProduct] = useState(null);
   const [selectedColor, setSelectedColor] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
-  const [showSizeOptions, setShowSizeOptions] = useState(false);
 
   useEffect(() => {
     fetch(`http://localhost:3000/product/${id}`)
       .then(response => response.json())
       .then(data => {
         setProduct(data);
-        if (data.colors && data.colors.length > 0) {
-          setSelectedColor(data.colors[0]); 
-        }
       })
       .catch(error => console.error('Error fetching product data:', error));
   }, [id]);
@@ -31,7 +29,6 @@ function ProductDetails() {
 
     const cartItem = {
       ...product,
-      
       size: selectedSize,
       quantity: 1
     };
@@ -50,43 +47,39 @@ function ProductDetails() {
   if (!product) return <div>Loading...</div>;
 
   return (
-    <div className="product-details">
-      <div className="image-section">
-        <img src={product.img} alt={product.title} />
-       
-      </div>
-      <div className="details-section">
-        <h1>{product.title}</h1>
-        <p>{product.description}</p>
-        <p className="price">Price: ${product.price}</p>
+    <>
+      <Navbar />
+      <HomePage/>
+      <div className="product-details">
+        <div className="image-section">
+          <img src={product.img} alt={product.title} />
+        </div>
+        <div className="details-section">
+          <h1>{product.title}</h1>
+          <p className="description">{product.description}</p>
+          <p className="price">${product.price}</p>
 
 
-        <div className="size-options">
-          <h1 style={{fontWeight:'bold'}}>Size</h1>
-          <button onClick={() => setShowSizeOptions(!showSizeOptions)}>
-            {selectedSize || "Select Size"}
-          </button>
-          {showSizeOptions && (
-            <div className="size-dropdown">
-              {['Small', 'Medium', 'Large'].map((size, index) => (
+          <div className="size-options">
+            <h2 style={{fontWeight:'bold'}}>SIZE</h2>
+            <div className="size-buttons">
+              {['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'].map((size, index) => (
                 <button
                   key={index}
                   className={selectedSize === size ? "selected" : ""}
-                  onClick={() => {
-                    setSelectedSize(size);
-                    setShowSizeOptions(false);
-                  }}
+                  onClick={() => setSelectedSize(size)}
                 >
                   {size}
                 </button>
               ))}
             </div>
-          )}
-        </div>
+          </div>
 
-        <button onClick={addToCart}>Add to Cart</button>
+          <button className="add-to-cart-button" onClick={addToCart}>Add to Bag</button>
+        </div>
       </div>
-    </div>
+      <Rooter />
+    </>
   );
 }
 
