@@ -1,7 +1,8 @@
-
 import React, { useEffect, useState } from 'react';
 import './Cart.css';
-import { Link } from 'react-router-dom';
+import Footer from '../navbar/Rooter';
+import Navbar from '../navbar/Navbar';
+import HomePage from '../Pages/Homepage';
 
 function Cart() {
   const [cartItems, setCartItems] = useState([]);
@@ -37,6 +38,8 @@ function Cart() {
 
   return (
     <div className="cart-container">
+       <Navbar />
+       <HomePage />
       <h1 className="cart-title">BAG</h1>
       {cartItems.length === 0 ? (
         <p className="cart-empty">No items in cart.</p>
@@ -70,10 +73,12 @@ function Cart() {
             ))}
           </div>
           <div className="cart-summary">
-            <h2>ORDER SUMMARY</h2>
-            <div className="summary-details">
-              <p>OFFER CODE</p>
+            <div className="summary-offer">
+              <h2>OFFER CODE</h2>
               <input type="text" placeholder="Have an offer code?" />
+            </div>
+            <div className="summary-total-cost">
+              <h2>TOTAL</h2>
               <div className="summary-total">
                 <p>BAG TOTAL</p>
                 <p>${cartItems.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2)}</p>
@@ -99,6 +104,7 @@ function Cart() {
           </div>
         </div>
       )}
+      <Footer />
     </div>
   );
 }
