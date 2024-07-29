@@ -1,9 +1,11 @@
+ 
 .App {
   font-family: 'Arial', sans-serif;
   color: #333;
   padding: 20px;
   background-color: #ffffff;
   text-align: center;
+   padding: 20px;
 }
 
 
@@ -12,22 +14,26 @@
   font-weight: bold;
   margin-bottom: 20px;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 2px;  
 }
 
 
 .intro {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 900px;
+  margin-left: 0px;
   padding: 20px 0;
+  display: flex;
+  /* border: 1px solid red; */
+ 
 }
 
 .intro p {
-  font-size: 16px;
+  font-size: 15px;
+  font-weight: bold;
   line-height: 1.6;
   color: #666;
-  margin-bottom: 20px;
-  padding: 0 10px;
+  margin-bottom: 10px;
+  padding: 0 30px;
 }
 
 
@@ -36,7 +42,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 80px;
+  width: 700px;
+  
 }
 
 .b1 {
@@ -46,7 +54,8 @@
   -webkit-overflow-scrolling: touch;
   padding: 10px;
   scrollbar-width: none; 
-  -ms-overflow-style: none;  
+  -ms-overflow-style: none; 
+  max-width: 600px; 
 }
 
 .b1::-webkit-scrollbar {
@@ -71,7 +80,7 @@
 }
 
 .scroll-button {
-  background-color: transparent;
+  background-color:#f5f5f5;
   border: none;
   font-size: 20px;
   cursor: pointer;
@@ -80,6 +89,9 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;
+  width: 40px; 
+  height: 40px;
+  border-radius: 50%;
 }
 
 .scroll-button.left {
@@ -136,4 +148,32 @@
 .product-card p {
   font-size: 16px;
   color: #888;
+} 
+
+@media (max-width: 768px) {
+  .intro {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .intro-content {
+    padding-right: 0;
+    margin-bottom: 20px;
+  }
 }
+
+@media (max-width: 480px) {
+  .product-card {
+    width: calc(100% - 20px); 
+  }
+
+  .carousel-container {
+    flex-direction: column;
+  }
+
+  .scroll-button {
+    display: none;
+  }
+}
+
+

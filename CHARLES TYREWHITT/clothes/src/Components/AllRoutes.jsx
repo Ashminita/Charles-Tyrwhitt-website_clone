@@ -8,6 +8,7 @@ import Cart from './Cart'
 import Login from '../navbar/Login'
 import CreateAccountPage from '../navbar/CreateAccountPage'
 import Home from '../Pages/Home'
+import Blazer from '../Products/Blazer'
 
 
 
@@ -21,6 +22,7 @@ const AllRoutes = () => {
         <Route path='/pant' element={<Pant/>}/>
         <Route path='/suit' element={<Suit/>}/>
         <Route path='/shirt' element={<Shirt/>}/>
+        <Route path='/blazer' element={<Blazer/>}/>
         <Route path='/product/:id' element={<ProductDetails />} /> 
         <Route path='/cart' element={<Cart/>} />
         <Route path='/login' element={<Login/>}/>
