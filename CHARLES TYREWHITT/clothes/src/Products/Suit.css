@@ -1,4 +1,4 @@
-/* src/Suit.css */
+ 
 .App {
     text-align: center;
     padding: 20px;
@@ -33,21 +33,21 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 5px; /* Reduced gap between products */
+    gap: 5px; 
   }
   
   .product-card {
     background-color: #f5f5f5;
     border-radius: 0px;
     padding: 0px;
-    max-width: 250px; /* Increased max-width for larger cards */
+    max-width: 250px; 
     text-align: center;
   }
   
   .product-card img {
     width: 100%;
     
-    /* border-radius: 8px; */
+    
   }
   
   .product-card h2 {
@@ -65,4 +65,6 @@
     font-weight: bold;
     color: #333;
   }
-  
+   
+
+   
