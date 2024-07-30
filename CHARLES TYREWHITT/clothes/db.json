@@ -1309,17 +1309,7 @@
       "category": "blazer"
     }
   ],
-  "cart": [
-    {
-      "id": "41",
-      "img": "https://www.charlestyrwhitt.com/dw/image/v2/AAWJ_PRD/on/demandware.static/-/Sites-ctshirts-master/default/dwe59bf263/hi-res/SUB60NAV_MODEL_FRONT.jpg?sw=430&sh=538&sm=fit&q=42",
-      "title": "Natural Stretch Twill Suit - Navy",
-      "price": 449,
-      "category": "suit",
-      "size": "S",
-      "quantity": 1
-    }
-  ],
+  "cart": [],
   "users": [
     {
       "id": "db34",

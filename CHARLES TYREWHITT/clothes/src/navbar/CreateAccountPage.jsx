@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> 27415a8b6943932376f0e10aa7ac1d6499df8331
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; 
