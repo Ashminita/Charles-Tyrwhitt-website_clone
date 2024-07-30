@@ -1,9 +1,12 @@
-.container {
+
+
+  .container {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #f4f4f4;
-    padding: 10px 0; 
+    padding: 10px 0;
+    flex-wrap: wrap; 
   }
   
   .container h4 {
@@ -11,6 +14,7 @@
     font-size: 14px;
     font-weight: 400;
     color: #333;
+    text-align: center; 
   }
   
   .container h4:hover {
@@ -24,3 +28,19 @@
   .container h4:nth-last-child(1) {
     color: #B22222;
   }
+  
+  
+  @media (max-width: 768px) {
+    .container h4 {
+      font-size: 12px; 
+      margin: 0 10px; 
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container h4 {
+      font-size: 10px; 
+      margin: 0 5px; 
+    }
+  }
+  
