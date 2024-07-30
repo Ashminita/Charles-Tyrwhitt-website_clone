@@ -1,7 +1,11 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
+<<<<<<< HEAD
 import axios from 'axios'; 
+=======
+import axios from 'axios'; // Import axios for making HTTP requests
+>>>>>>> 27415a8b6943932376f0e10aa7ac1d6499df8331
 import './Login.css';
 
 function Login() {
@@ -14,6 +18,7 @@ function Login() {
     e.preventDefault();
     
     try {
+<<<<<<< HEAD
       
       const response = await axios.post('http://localhost:5000/login', { email, password });
       
@@ -23,6 +28,17 @@ function Login() {
         setTimeout(() => {
           navigate('/'); 
         }, 2000); 
+=======
+      // Send a request to your JSON server to validate the credentials
+      const response = await axios.post('http://localhost:5000/login', { email, password });
+      
+      // Check if login was successful
+      if (response.data.success) {
+        setMessage('Login successful!');
+        setTimeout(() => {
+          navigate('/'); // Redirect to homepage
+        }, 2000); // Display message for 2 seconds
+>>>>>>> 27415a8b6943932376f0e10aa7ac1d6499df8331
       } else {
         setMessage('Invalid email or password. Please try again.');
       }
