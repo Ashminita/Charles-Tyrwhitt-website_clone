@@ -11,10 +11,10 @@ body {
   align-items: center;
   background-color: #fff;
   padding: 10px 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
+  border-bottom: 1px solid #ddd;
 }
 
 .navbar-icon {
@@ -54,10 +54,9 @@ body {
 .cart-container {
   padding: 20px;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 20px auto;
   background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .cart-title {
@@ -82,10 +81,10 @@ body {
   display: flex;
   border-bottom: 1px solid #ddd;
   padding: 20px 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   margin-bottom: 20px;
   background-color: #fff;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05); /* Light box shadow */
 }
 
 .cart-item-image {
@@ -94,11 +93,11 @@ body {
   object-fit: cover;
   margin-right: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .cart-item-details {
   flex: 1;
+  padding: 10px;
 }
 
 .cart-item-title {
@@ -158,15 +157,18 @@ body {
 }
 
 .remove-button {
-  background: none;
+  background-color: red;
   border: none;
-  color: red;
+  color: white;
   cursor: pointer;
   font-size: 0.9em;
+  padding: 5px 10px;
+  border-radius: 4px;
 }
 
 .remove-button:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  background-color: darkred;
 }
 
 .cart-summary {
@@ -175,10 +177,10 @@ body {
   border: 1px solid #ddd;
   background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 40px;
   height: fit-content;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Light box shadow */
 }
 
 .summary-offer,
@@ -268,7 +270,6 @@ body {
 .footer {
   background-color: #fff;
   padding: 20px;
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
