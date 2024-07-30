@@ -1,19 +1,32 @@
+
+
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import './ProductDetalils.css';
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Button,
+  useDisclosure
+} from "@chakra-ui/react";
+import './ProductDetalils.css'; 
 import Navbar from '../navbar/Navbar';
 import Rooter from '../navbar/Rooter';
-import HomePage from '../Pages/Homepage';
+import HomePage from '../Pages/Homepage'; 
 
 function ProductDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [product, setProduct] = useState(null);
-  const [selectedColor, setSelectedColor] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen: isDuplicateOpen, onOpen: onDuplicateOpen, onClose: onDuplicateClose } = useDisclosure();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/product/${id}`)
+    fetch(`http://localhost:3000/product/${id}`) 
       .then(response => response.json())
       .then(data => {
         setProduct(data);
@@ -23,7 +36,16 @@ function ProductDetails() {
 
   const addToCart = async () => {
     if (!selectedSize) {
-      alert("Please select a size");
+      onOpen();
+      return;
+    }
+
+    const existingCartResponse = await fetch('http://localhost:3000/cart');
+    const existingCart = await existingCartResponse.json();
+    const isItemInCart = existingCart.some(item => item.id === product.id && item.size === selectedSize);
+
+    if (isItemInCart) {
+      onDuplicateOpen();
       return;
     }
 
@@ -49,7 +71,7 @@ function ProductDetails() {
   return (
     <>
       <Navbar />
-      <HomePage/>
+      <HomePage />
       <div className="product-details">
         <div className="image-section">
           <img src={product.img} alt={product.title} />
@@ -59,9 +81,8 @@ function ProductDetails() {
           <p className="description">{product.description}</p>
           <p className="price">${product.price}</p>
 
-
           <div className="size-options">
-            <h2 style={{fontWeight:'bold'}}>SIZE</h2>
+            <h2 style={{ fontWeight: 'bold' }}>SIZE</h2>
             <div className="size-buttons">
               {['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'].map((size, index) => (
                 <button
@@ -79,6 +100,32 @@ function ProductDetails() {
         </div>
       </div>
       <Rooter />
+
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Size Selection Required</ModalHeader>
+          <ModalBody>Please select a size before adding the product to the cart.</ModalBody>
+          <ModalFooter>
+            <Button colorScheme="blue" onClick={onClose}>
+              OK
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+
+      <Modal isOpen={isDuplicateOpen} onClose={onDuplicateClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Item Already in Cart</ModalHeader>
+          <ModalBody>This product with the selected size is already in your cart.</ModalBody>
+          <ModalFooter>
+            <Button colorScheme="blue" onClick={onDuplicateClose}>
+              OK
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </>
   );
 }
