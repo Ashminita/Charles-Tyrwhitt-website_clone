@@ -1,76 +1,75 @@
 .login-container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .login-section, .new-customer-section {
-    width: 45%;
-  }
-  
-  h1, h2 {
-    color: #003366;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .input-group {
-    margin-bottom: 15px;
-  }
-  
-  .input-group label {
-    margin-bottom: 5px;
-    color: #666;
-  }
-  
-  .input-group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .login-button, .create-account-button {
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #003366;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  .login-button:hover, .create-account-button:hover {
-    background-color: #002244;
-  }
-  
-  .forgot-password {
-    margin-top: 10px;
-    text-align: right;
-    color: #003366;
-    text-decoration: none;
-  }
-  
-  .forgot-password:hover {
-    text-decoration: underline;
-  }
-  
-  .new-customer-section ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .new-customer-section ul li {
-    margin-bottom: 10px;
-    color: #666;
-  }
-  
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-section, .new-customer-section {
+  width: 45%;
+}
+
+h1, h2 {
+  color: #003366;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  margin-bottom: 5px;
+  color: #666;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login-button, .create-account-button {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #003366;
+  color: #fff;
+  cursor: pointer;
+}
+
+.login-button:hover, .create-account-button:hover {
+  background-color: #002244;
+}
+
+.forgot-password {
+  margin-top: 10px;
+  text-align: right;
+  color: #003366;
+  text-decoration: none;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.new-customer-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.new-customer-section ul li {
+  margin-bottom: 10px;
+  color: #666;
+}

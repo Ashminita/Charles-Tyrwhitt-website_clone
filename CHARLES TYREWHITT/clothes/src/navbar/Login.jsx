@@ -1,26 +1,45 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
+import { useNavigate } from 'react-router-dom'; 
+import axios from 'axios'; // Import axios for making HTTP requests
 import './Login.css';
 
 function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate(); // Initialize useNavigate
+  const [message, setMessage] = useState('');
+  const navigate = useNavigate(); 
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // Add login logic here
-    console.log('Logging in with', email, password);
+    
+    try {
+      // Send a request to your JSON server to validate the credentials
+      const response = await axios.post('http://localhost:5000/login', { email, password });
+      
+      // Check if login was successful
+      if (response.data.success) {
+        setMessage('Login successful!');
+        setTimeout(() => {
+          navigate('/'); // Redirect to homepage
+        }, 2000); // Display message for 2 seconds
+      } else {
+        setMessage('Invalid email or password. Please try again.');
+      }
+    } catch (error) {
+      console.error('There was an error during login:', error);
+      setMessage('There was an error during login. Please try again.');
+    }
   };
 
   const handleCreateAccount = () => {
-    navigate('/create-account'); // Redirect to Create Account page
+    navigate('/create-account'); 
   };
 
   return (
     <div className="login-container">
       <div className="login-section">
         <h1>My account</h1>
+        {message && <p className="login-message">{message}</p>}
         <form onSubmit={handleLogin}>
           <div className="input-group">
             <label>Email address</label>

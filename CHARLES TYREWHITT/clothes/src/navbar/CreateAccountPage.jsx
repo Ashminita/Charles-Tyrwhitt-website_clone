@@ -1,5 +1,6 @@
-// src/Components/CreateAccountPage.js
 import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; 
 import './CreateAccount.css';
 
 function CreateAccountPage() {
@@ -11,8 +12,11 @@ function CreateAccountPage() {
     password: '',
     phone: '',
     subscribe: false,
-    unsubscribe: false, // Ensure this is part of the state
+    unsubscribe: false,
   });
+
+  const [message, setMessage] = useState('');
+  const navigate = useNavigate(); 
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -22,16 +26,34 @@ function CreateAccountPage() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log('Form submitted:', formValues);
+    console.log('Submitting form with values:', formValues);
+
+    try {
+      
+      const response = await axios.post('http://localhost:3000/users', formValues);
+      console.log('Response from server:', response);
+      setMessage('Account created');
+      setTimeout(() => {
+        setMessage('');
+        navigate('/'); 
+      }, 3000); 
+    } catch (error) {
+      console.error('There was an error creating the account!', error);
+      if (error.response) {
+        console.error('Error response data:', error.response.data); 
+      }
+      setMessage('Error creating account'); 
+      setTimeout(() => setMessage(''), 3000); 
+    }
   };
 
   return (
     <div className="create-account-page">
       <div className="form-container">
-        <h2>Create account</h2>
+        <h2>Create Account</h2>
+        {message && <p className="popup-message">{message}</p>}
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Title</label>
@@ -43,11 +65,11 @@ function CreateAccountPage() {
             </select>
           </div>
           <div className="form-group">
-            <label>First name</label>
+            <label>First Name</label>
             <input type="text" name="firstName" value={formValues.firstName} onChange={handleChange} required />
           </div>
           <div className="form-group">
-            <label>Last name</label>
+            <label>Last Name</label>
             <input type="text" name="lastName" value={formValues.lastName} onChange={handleChange} required />
           </div>
           <div className="form-group">
@@ -58,7 +80,7 @@ function CreateAccountPage() {
             <label>Password</label>
             <input type="password" name="password" value={formValues.password} onChange={handleChange} required />
             <p className="password-hint">
-              Your password must be at least 8 characters in length, and contain at least: 1 number, 1 upper case letter, 1 lower case letter, 1 special character.
+              Your password must be at least 8 characters in length, and contain at least: 1 number, 1 uppercase letter, 1 lowercase letter, and 1 special character.
             </p>
           </div>
           <div className="form-group">
@@ -68,15 +90,15 @@ function CreateAccountPage() {
           <div className="checkbox-group">
             <label className="checkbox-label">
               <input type="checkbox" name="subscribe" checked={formValues.subscribe} onChange={handleChange} />
-              Emails about offers and our exciting new ranges.
+              Receive emails about offers and new ranges.
             </label>
             <label className="checkbox-label">
               <input type="checkbox" name="unsubscribe" checked={formValues.unsubscribe} onChange={handleChange} />
-              If you'd prefer not to receive mail from selected companies, please check this box.
+              Opt-out of mail from selected companies.
             </label>
-            By creating an account with Charles Tyrwhitt, you confirm that you have read and accept our Terms and Conditions and See privacy policy
+            <p>By creating an account, you confirm that you have read and accept our Terms and Conditions and Privacy Policy.</p>
           </div>
-          <button type="submit" className="submit-button">Create an Account</button>
+          <button type="submit" className="submit-button">Create Account</button>
         </form>
       </div>
     </div>
