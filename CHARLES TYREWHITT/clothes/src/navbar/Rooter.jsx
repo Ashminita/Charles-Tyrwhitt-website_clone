@@ -61,7 +61,7 @@ const Footer = () => {
             <HStack>
               <Text>We accept:</Text>
               
-              {/* Add payment method icons here */}
+              
             </HStack>
           </HStack>
         </Flex>
