@@ -6,7 +6,6 @@ A fully responsive **e-commerce website clone** of the official [Charles Tyrwhit
 
 This project replicates the core features and UI/UX of the Charles Tyrwhitt website, focusing on user-friendly design, responsive layout, and smooth navigation. It includes product listings, sorting/filtering, product details, and a shopping cart interface.
 
-## 👥 Team Members
 
 ## 👥 Team Members & Contributions
 
@@ -37,16 +36,11 @@ This project replicates the core features and UI/UX of the Charles Tyrwhitt webs
 - ✅ Clean and consistent UI inspired by the original website  
 
 
-## 🖼️ Screenshots
-
-> *![alt text](image.png)*
-> *![alt text](image-1.png)*
-
 ## 📦 How to Run Locally
 
 1. Clone the repository  
 ```bash
-git clone https://github.com/your-username/charles-tyrwhitt-clone.git
+git clone https://github.com/Ashminita/Charles-Tyrwhitt-website_clone.git
 ```
 
 2. Navigate to the project directory
