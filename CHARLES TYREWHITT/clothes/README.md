@@ -13,7 +13,7 @@ This project replicates the core features and UI/UX of the Charles Tyrwhitt webs
 - **Anmol Singh** — Developed the homepage layout and UI structure.
 - **Rajbir Deb Mishra** — Implemented the navigation bar, footer, login, and registration functionality.
 - **A.K Sabyasachi** — Built the add-to-cart functionality and handled cart state management.
-- **Manaswini** — Designed and developed the single product detail page.
+- **Manaswini Mohapatra** — Designed and developed the single product detail page.
 - **Ashminita Baliarsingh** — Created the product listing page and structured the `db.json` file for mock product data.
 
 
@@ -39,7 +39,8 @@ This project replicates the core features and UI/UX of the Charles Tyrwhitt webs
 
 ## 🖼️ Screenshots
 
-> *(Add relevant screenshots of homepage, product page, and cart here)*
+> *![alt text](image.png)*
+> *![alt text](image-1.png)*
 
 ## 📦 How to Run Locally
 
